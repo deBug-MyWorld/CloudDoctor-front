@@ -13,12 +13,12 @@
           <el-divider></el-divider>
           <el-form ref="form" :model="form" :rules="rules"  label-width="80px">
             <el-form-item label="标题:" prop="title">
-              <el-input v-model="form.title" placeholder="请输入标题"></el-input>
+              <el-input v-model="form.title" placeholder="请输入本次问诊的主要内容"></el-input>
             </el-form-item>   
             <el-form-item label="详情:" prop="textarea">
-              <el-input type="textarea" :rows="5" placeholder="请详细描述你的病情" v-model="form.textarea"   maxlength="500" show-word-limit></el-input>
+              <el-input type="textarea" :rows="5" placeholder="请详细描述你的个人信息、就诊经历等" v-model="form.textarea"   maxlength="500" show-word-limit></el-input>
             </el-form-item>  
-            <el-form-item label="添加图片(限制5张):">
+            <el-form-item label="添加图片，辅助病情描述(限制5张):">
               <el-upload action="http://localhost:8080/PicsUpload" list-type="picture-card" ref="upload" style="text-align:left;"
                :on-preview="handlePictureCardPreview"
                 :on-remove="handleRemove"
@@ -61,9 +61,9 @@ export default {
         textarea: ""
       },
       rules: {
-        title: [{ required: true, message: "请输入标题", trigger: "blur" }],
+        title: [{ required: true, message: "请输入本次问诊的主要内容", trigger: "blur" }],
         textarea: [
-          { required: true, message: "请详细描述你的病情", trigger: "blur" }
+          { required: true, message: "请详细描述你的个人信息，就诊经历等", trigger: "blur" }
         ]
       },
       dialogImageUrl: "",
